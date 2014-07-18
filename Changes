@@ -8,6 +8,7 @@ Revision history for Lingua-EN-NameCase
         - added LICENSE file.
         - reworked Makefile.PL for clarity.
         - minimum perl version is now 5.006.
+        - added META.json and updated META.yml.
 
 1.15    2008-02-27
         - Fixed the version number.

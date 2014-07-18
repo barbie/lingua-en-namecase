@@ -3,5 +3,7 @@ lib/Lingua/EN/NameCase.pm
 LICENSE
 MANIFEST
 Makefile.PL
+META.json
+META.yml
 README
 t/namecase.t
