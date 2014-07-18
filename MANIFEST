@@ -1,5 +1,6 @@
-NameCase.pm
-t/namecase.t
+Changes
+lib/Lingua/EN/NameCase.pm
 MANIFEST
 Makefile.PL
 README
+t/namecase.t
