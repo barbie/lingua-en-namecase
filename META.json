@@ -1,7 +1,7 @@
 {
     "name": "Lingua-EN-NameCase",
     "version": "1.15",
-    "abstract": "Change UCASE and lowcase names to Proper Case",
+    "abstract": "Correctly case a person's name from UPERCASE or lowcase",
     "author": [
         "Barbie (BARBIE) <barbie@cpan.org>"
     ],

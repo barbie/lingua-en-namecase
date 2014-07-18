@@ -10,7 +10,7 @@ WriteMakefile(
     NAME                => 'Lingua-EN-NameCase',
     AUTHOR              => 'Barbie <barbie@cpan.org>',
     VERSION_FROM        => 'lib/Lingua/EN/NameCase.pm',
-    ABSTRACT            => 'Change UCASE and lowcase names to Proper Case',
+    ABSTRACT            => "Correctly case a person's name from UPERCASE or lowcase",
     LICENSE             => 'artistic_2',
     PL_FILES            => {},
     NO_META             => 1,
