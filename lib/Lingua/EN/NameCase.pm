@@ -216,16 +216,20 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 
 =head1 AUTHOR
 
-Mark Summerfield. I can be contacted as <summer@qtrac.eu> -
-please include the word 'namecase' in the subject line.
+  Mark Summerfield <summer@qtrac.eu> - 1998-2014
+  Barbie <barbie@cpan.org>  2014-present
+
+=head1 ACKNOWLEDGEMENTS
 
 Thanks to Kim Ryan <kimaryan@ozemail.com.au> for his Mc/Mac solution.
 
 =head1 COPYRIGHT
 
-Copyright (c) Mark Summerfield 1998-2008. All Rights Reserved.
+Copyright (c) Mark Summerfield 1998-2014. All Rights Reserved.
+Copyright (c) Barbie 2014. All Rights Reserved.
 
-This module may be used/distributed/modified under the same terms as
-Perl itself. 
+This distribution is free software; you can redistribute it and/or
+modify it under the Artistic Licence v2.
 
 =cut
+

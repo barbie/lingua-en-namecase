@@ -83,6 +83,9 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 
 =head1 CHANGES
 
+These are the original change comments. These have now been moved to the new
+Changes file within the distribution.
+
 1998/04/20  First release.
 
 1998/06/25  First public release.
@@ -113,34 +116,38 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
             know.)
 
 2000/11/22  Added use locale at the suggestion of Eric Kolve. It should have
-	    been there in the first place.
+    	    been there in the first place.
 
 2002/04/25  Al, Ben and Van are preserved if single names and namecased 
-	    otherwise, e.g. 'Al' => 'Al', 'Al Fahd' => 'al Fahd'. Added
-	    $SPANISH_EL variable. All thanks to a suggestion by Aaron
-	    Patterson.
+	        otherwise, e.g. 'Al' => 'Al', 'Al Fahd' => 'al Fahd'. Added
+	        $SPANISH_EL variable. All thanks to a suggestion by Aaron
+    	    Patterson.
+
 2002/04/26  Changed $SPANISH_EL to $SPANISH and now 'La' => 'la' unless 
-	    $SPANISH is set in which case 'La' => 'La'. Again thanks to
-	    Aaron Patterson.
+	        $SPANISH is set in which case 'La' => 'La'. Again thanks to
+	        Aaron Patterson.
 
 2007/04/27  Added 16 "Mac" exceptions provided by Stuart McConnachie.
-	    The license is now "the same terms as Perl itself".
+    	    The license is now "the same terms as Perl itself".
 
 2008/02/07  Fixed the version number.
 
 =head1 AUTHOR
 
-Mark Summerfield. I can be contacted as <summer@qtrac.eu> -
-please include the word 'namecase' in the subject line.
+  Mark Summerfield <summer@qtrac.eu> - 1998-2014
+  Barbie <barbie@cpan.org>  2014-present
+
+=head1 ACKNOWLEDGEMENTS
 
 Thanks to Kim Ryan <kimaryan@ozemail.com.au> for his Mc/Mac solution.
 
 =head1 COPYRIGHT
 
-Copyright (c) Mark Summerfield 1998-2008. All Rights Reserved.
+Copyright (c) Mark Summerfield 1998-2014. All Rights Reserved.
+Copyright (c) Barbie 2014. All Rights Reserved.
 
-This module may be used/distributed/modified under the same terms as
-Perl itself. 
+This distribution is free software; you can redistribute it and/or
+modify it under the Artistic Licence v2.
 
 =cut
 
