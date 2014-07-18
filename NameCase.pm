@@ -11,7 +11,7 @@ use Carp ;
 
 use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $SPANISH ) ;
 
-$VERSION = '1.13' ;
+$VERSION = '1.15' ;
 
 use Exporter() ;
 
@@ -259,6 +259,8 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 2007/04/27  Added 16 "Mac" exceptions provided by Stuart McConnachie.
 	    The license is now "the same terms as Perl itself".
 
+2008/02/07  Fixed the version number.
+
 =head1 AUTHOR
 
 Mark Summerfield. I can be contacted as <summer@qtrac.eu> -
@@ -268,7 +270,7 @@ Thanks to Kim Ryan <kimaryan@ozemail.com.au> for his Mc/Mac solution.
 
 =head1 COPYRIGHT
 
-Copyright (c) Mark Summerfield 1998-2007. All Rights Reserved.
+Copyright (c) Mark Summerfield 1998-2008. All Rights Reserved.
 
 This module may be used/distributed/modified under the same terms as
 Perl itself. 

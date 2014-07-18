@@ -4,7 +4,7 @@
 
 Test script for Lingua::EN::NameCase.pm
 
-Copyright (c) Mark Summerfield 1998-2007. All Rights Reserved. This program is
+Copyright (c) Mark Summerfield 1998-2008. All Rights Reserved. This program is
 free software; you can redistribute it and/or modify it under the same
 terms as Perl itself.
 
