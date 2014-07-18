@@ -24,7 +24,7 @@
         "runtime" : {
             "requires" : {
                 "perl": "5.006",
-                "Carp": "0".
+                "Carp": "0",
                 "Exporter": "0"
             }
         },
