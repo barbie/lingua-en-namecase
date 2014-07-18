@@ -1,17 +1,17 @@
 package Lingua::EN::NameCase ;    # Documented at the __END__.
 
-# $Id: NameCase.pm,v 1.12 1999/09/07 17:37:36 root Exp root $
+# $Id: NameCase.pm,v 1.2 2000/11/22 19:03:48 mark Exp mark $
 
 require 5.004 ;
 
 use strict ;
+use locale ;
 
 use Carp ;
 
 use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK ) ;
 
-$VERSION = '1.10' ;
-
+$VERSION = '1.11' ;
 
 use Exporter() ;
 
@@ -19,7 +19,6 @@ use Exporter() ;
 
 @EXPORT     = qw( nc ) ;
 @EXPORT_OK  = qw( NameCase nc ) ;
-
 
 #############################
 sub NameCase {
@@ -54,7 +53,6 @@ sub NameCase {
         croak "NameCase only accepts a single scalar, array or array ref" ;
     }
 }
-
 
 #############################
 sub nc {
@@ -108,11 +106,9 @@ sub nc {
     $_ ;
 }
 
-
 1 ;
 
 __END__
-
 
 =head1 NAME
 
@@ -127,7 +123,6 @@ NameCase - Perl module to fix the case of people's names.
     $FixedCasedName  = nc( $OriginalName ) ;
 
     $FixedCasedName  = nc( \$OriginalName ) ;
-
 
     # Working with arrays or array references.
 
@@ -230,19 +225,21 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
             Rice for this suggestion. (If you need to go beyond LXXXIX let me
             know.)
 
+2000/11/22  Added use locale at the suggestion of Eric Kolve. It should have
+	    been there in the first place.
+
 =head1 AUTHOR
 
-Mark Summerfield. I can be contacted as <summer@chest.ac.uk> -
+Mark Summerfield. I can be contacted as <summer@perlpress.com> -
 please include the word 'namecase' in the subject line.
 
 Thanks to Kim Ryan <kimaryan@ozemail.com.au> for his Mc/Mac solution.
 
 =head1 COPYRIGHT
 
-Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
+Copyright (c) Mark Summerfield 1998-2000. All Rights Reserved.
 
 This module may be used/distributed/modified under the LGPL. 
 
 =cut
-
 

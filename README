@@ -12,7 +12,6 @@ NameCase - Perl module to fix the case of people's names.
 
     $FixedCasedName  = nc( \$OriginalName ) ;
 
-
     # Working with arrays or array references.
 
     use Lingua::EN::NameCase 'NameCase' ;
@@ -114,19 +113,21 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
             Rice for this suggestion. (If you need to go beyond LXXXIX let me
             know.)
 
+2000/11/22  Added use locale at the suggestion of Eric Kolve. It should have
+	    been there in the first place.
+
 =head1 AUTHOR
 
-Mark Summerfield. I can be contacted as <summer@chest.ac.uk> -
+Mark Summerfield. I can be contacted as <summer@perlpress.com> -
 please include the word 'namecase' in the subject line.
 
 Thanks to Kim Ryan <kimaryan@ozemail.com.au> for his Mc/Mac solution.
 
 =head1 COPYRIGHT
 
-Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
+Copyright (c) Mark Summerfield 1998-2000. All Rights Reserved.
 
 This module may be used/distributed/modified under the LGPL. 
 
 =cut
-
 
