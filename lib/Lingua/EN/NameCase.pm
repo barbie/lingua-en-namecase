@@ -1,28 +1,30 @@
-package Lingua::EN::NameCase ;    # Documented at the __END__.
-
-# $Id: NameCase.pm,v 1.4 2002/04/26 07:26:28 mark Exp mark $
-
-require 5.004 ;
+package Lingua::EN::NameCase ;
 
 use strict ;
 use locale ;
-
-use Carp ;
 
 use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $SPANISH ) ;
 
 $VERSION = '1.15' ;
 
+#--------------------------------------------------------------------------
+# Modules
+
+use Carp ;
 use Exporter() ;
 
 @ISA        = qw( Exporter ) ;
-
 @EXPORT     = qw( nc ) ;
 @EXPORT_OK  = qw( NameCase nc ) ;
 
+#--------------------------------------------------------------------------
+# Variables
+
 $SPANISH    = 0;
 
-#############################
+#--------------------------------------------------------------------------
+# Functions
+
 sub NameCase {
 
     croak "Usage: \$SCALAR|\@ARRAY = NameCase [\\]\$SCALAR|\@ARRAY"
@@ -56,7 +58,6 @@ sub NameCase {
     }
 }
 
-#############################
 sub nc {
 
     croak "Usage: nc [[\\]\$SCALAR]"
@@ -131,9 +132,11 @@ sub nc {
 
 __END__
 
+#--------------------------------------------------------------------------
+
 =head1 NAME
 
-NameCase - Perl module to fix the case of people's names.
+Lingua::EN::NameCase - Correctly case a person's name from UPERCASE or lowcase
 
 =head1 SYNOPSIS
 
@@ -176,6 +179,7 @@ correctly with them.
 
 NameCase currently correctly name cases names which include any of the
 following:
+
     Mc, Mac, al, el, ap, da, de, delle, della, di, du, del, der, 
     la, le, lo, van and von.
 
@@ -196,7 +200,7 @@ plus "son (daughter) of" etc. in various languages, e.g.:
     VON STREIT          von Streit
     VAN DYKE            van Dyke
     AP LLWYD DAFYDD     ap Llwyd Dafydd
-etc.
+    etc.
 
 plus names with roman numerals (up to 89, LXXXIX), e.g.:
 
@@ -216,8 +220,8 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 
 =head1 AUTHOR
 
-  Mark Summerfield <summer@qtrac.eu> - 1998-2014
-  Barbie <barbie@cpan.org>  2014-present
+  1998-2014    Mark Summerfield <summer@qtrac.eu>
+  2014-present Barbie <barbie@cpan.org>  
 
 =head1 ACKNOWLEDGEMENTS
 
@@ -232,4 +236,3 @@ This distribution is free software; you can redistribute it and/or
 modify it under the Artistic Licence v2.
 
 =cut
-
