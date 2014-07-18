@@ -12,6 +12,7 @@ installdirs:              site
 requires:
   perl:                   5.006
   Carp:                   0
+  Exporter:               0
 recommends:
   Test::CPAN::Meta:       0
   Test::CPAN::Meta::JSON: 0

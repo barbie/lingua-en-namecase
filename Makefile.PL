@@ -16,11 +16,12 @@ WriteMakefile(
     NO_META             => 1,
     PREREQ_PM => {
 
-        'Carp'                => '0',
+        'Carp'                  => '0',
+        'Exporter'              => '0',
         
         # build/test prereqs
-        'IO::File'            => '0',
-        'Test::More'          => '0.70'
+        'IO::File'              => '0',
+        'Test::More'            => '0.70'
 
     },
     'LIBS'              => [''],   # e.g., '-lm'
