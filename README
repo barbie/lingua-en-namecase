@@ -27,6 +27,9 @@ NameCase - Perl module to fix the case of people's names.
     # NameCase will not change a scalar in-place, i.e.
     NameCase( \$OriginalName ) ; # WRONG: null operation.
 
+    $Lingua::EN::NameCase::SPANISH_EL = 1;
+    # Now 'El' => 'El' instead of (default) Greek 'El' => 'el'.
+
 =head1 DESCRIPTION
 
 Forenames and surnames are often stored either wholly in UPPERCASE
@@ -72,11 +75,6 @@ The module covers the rules that I know of. There are probably a lot
 more rules, exceptions etc. for "Western"-style languages which could be
 incorporated.
 
-We don't fix "ben" - for hebrew names this means son of, but it can
-mean "Ben" as a name in itself or as a form of "Benjamin". However we
-do fix "al" - for arabic names this means son of, even though it can also
-mean "Al" as a name in itself.
-
 There are probably lots of exceptions and problems - but as a general
 data 'cleaner' it may be all you need.
 
@@ -116,6 +114,11 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 2000/11/22  Added use locale at the suggestion of Eric Kolve. It should have
 	    been there in the first place.
 
+2002/04/25  Al, Ben and Van are preserved if single names and namecased 
+	    otherwise, e.g. 'Al' => 'Al', 'Al Fahd' => 'al Fahd'. Added
+	    $SPANISH_EL variable. All thanks to a suggestion by Aaron
+	    Patterson.
+
 =head1 AUTHOR
 
 Mark Summerfield. I can be contacted as <summer@perlpress.com> -
@@ -125,7 +128,7 @@ Thanks to Kim Ryan <kimaryan@ozemail.com.au> for his Mc/Mac solution.
 
 =head1 COPYRIGHT
 
-Copyright (c) Mark Summerfield 1998-2000. All Rights Reserved.
+Copyright (c) Mark Summerfield 1998-2002. All Rights Reserved.
 
 This module may be used/distributed/modified under the LGPL. 
 

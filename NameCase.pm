@@ -1,6 +1,6 @@
 package Lingua::EN::NameCase ;    # Documented at the __END__.
 
-# $Id: NameCase.pm,v 1.2 2000/11/22 19:03:48 mark Exp mark $
+# $Id: NameCase.pm,v 1.3 2002/04/25 11:25:31 mark Exp mark $
 
 require 5.004 ;
 
@@ -9,9 +9,9 @@ use locale ;
 
 use Carp ;
 
-use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK ) ;
+use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $SPANISH_EL ) ;
 
-$VERSION = '1.11' ;
+$VERSION = '1.12' ;
 
 use Exporter() ;
 
@@ -19,6 +19,8 @@ use Exporter() ;
 
 @EXPORT     = qw( nc ) ;
 @EXPORT_OK  = qw( NameCase nc ) ;
+
+$SPANISH_EL = 0;
 
 #############################
 sub NameCase {
@@ -64,7 +66,7 @@ sub nc {
     $_ = ${$_} if ref( $_ ) ;           # Replace reference with value.
 
     $_ = lc ;                           # Lowercase the lot.
-	s{ \b (\w)   }{\u$1}gox ;           # Uppercase first letter of every word.
+    s{ \b (\w)   }{\u$1}gox ;           # Uppercase first letter of every word.
     s{ (\'\w) \b }{\L$1}gox ;           # Lowercase 's.
 
     # Name case Mcs and Macs - taken straight from NameParse.pm incl. comments.
@@ -91,13 +93,16 @@ sub nc {
     s/Macmurdo/MacMurdo/go ;
  
     # Fixes for "son (daughter) of" etc. in various languages.
-    s{ \b ([AE])l   \b }{\l$1l}gox ;    # al and el Arabic/Greek.
+    s{ \b Al(?=\s+\w)  }{al}gox ;	# al Arabic or forename Al.
+    s{ \b El	    \b }{el}gox unless $SPANISH_EL ;	# el Greek.
     s{ \b Ap        \b }{ap}gox ;       # ap Welsh.
-    s{ \b Dell([ae])\b }{dell$1}gox ;   # della delle Italian.
+    s{ \b Ben(?=\s+\w) }{ben}gox ;	# ben Hebrew or forename Ben.
+    s{ \b Dell([ae])\b }{dell$1}gox ;   # della and delle Italian.
     s{ \b D([aeiu]) \b }{d$1}gox ;      # da, de, di Italian; du French.
     s{ \b De([lr])  \b }{de$1}gox ;     # del Italian; der Dutch/Flemish.
     s{ \b L([aeo])  \b }{l$1}gox ;      # lo Italian; la, le French.
-    s{ \b V([ao])n  \b }{v$1n}gox ;     # van German; von Dutch/Flemish.
+    s{ \b Von       \b }{von}gox ;	# von Dutch/Flemish
+    s{ \b Van(?=\s+\w) }{van}gox ;	# van German or forename Van.
 
     # Fixes for roman numeral names, e.g. Henry VIII, up to 89, LXXXIX
     s{ \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
@@ -138,6 +143,9 @@ NameCase - Perl module to fix the case of people's names.
 
     # NameCase will not change a scalar in-place, i.e.
     NameCase( \$OriginalName ) ; # WRONG: null operation.
+
+    $Lingua::EN::NameCase::SPANISH_EL = 1;
+    # Now 'El' => 'El' instead of (default) Greek 'El' => 'el'.
 
 =head1 DESCRIPTION
 
@@ -184,11 +192,6 @@ The module covers the rules that I know of. There are probably a lot
 more rules, exceptions etc. for "Western"-style languages which could be
 incorporated.
 
-We don't fix "ben" - for hebrew names this means son of, but it can
-mean "Ben" as a name in itself or as a form of "Benjamin". However we
-do fix "al" - for arabic names this means son of, even though it can also
-mean "Al" as a name in itself.
-
 There are probably lots of exceptions and problems - but as a general
 data 'cleaner' it may be all you need.
 
@@ -228,6 +231,11 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 2000/11/22  Added use locale at the suggestion of Eric Kolve. It should have
 	    been there in the first place.
 
+2002/04/25  Al, Ben and Van are preserved if single names and namecased 
+	    otherwise, e.g. 'Al' => 'Al', 'Al Fahd' => 'al Fahd'. Added
+	    $SPANISH_EL variable. All thanks to a suggestion by Aaron
+	    Patterson.
+
 =head1 AUTHOR
 
 Mark Summerfield. I can be contacted as <summer@perlpress.com> -
@@ -237,7 +245,7 @@ Thanks to Kim Ryan <kimaryan@ozemail.com.au> for his Mc/Mac solution.
 
 =head1 COPYRIGHT
 
-Copyright (c) Mark Summerfield 1998-2000. All Rights Reserved.
+Copyright (c) Mark Summerfield 1998-2002. All Rights Reserved.
 
 This module may be used/distributed/modified under the LGPL. 
 

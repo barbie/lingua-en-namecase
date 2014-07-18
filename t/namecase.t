@@ -22,9 +22,10 @@ my $debugging = 0 ;
 my @proper_names = (
     "Keith",            "Leigh-Williams",       "McCarthy",
     "O'Callaghan",      "St. John",             "von Streit",
-    "van Dyke",         "ap Llwyd Dafydd",      
-    "al Fayd", 
-    "el Grecco",        #"ben Gurion", # Can't use -- could be Ben as in Benjamin.
+    "van Dyke",         "Van",			"ap Llwyd Dafydd",      
+    "al Fahd",		"Al",
+    "el Grecco",        
+    "ben Gurion",	"Ben",
     "da Vinci",
     "di Caprio",        "du Pont",              "de Legate",
     "del Crond",        "der Sind",             "van der Post",
@@ -218,6 +219,10 @@ print "" . ( $result[0] eq $proper_names[1] ? "ok\n" : "not ok\a\n" )
 if $debugging ;
 print "" . ( $result[0] eq $proper_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
+$Lingua::EN::NameCase::SPANISH_EL = 1;
+print "" . ( 'El Paso' eq nc( 'El Paso' )  ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
+
+
 sub eq_array {
     my( $array_ref_A, $array_ref_B ) = @_ ;
     local( $_ ) ;
@@ -232,4 +237,5 @@ sub eq_array {
 
     1 ; # Must be equal.
 }
+
 
