@@ -10,7 +10,7 @@ use Carp ;
 
 use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK ) ;
 
-$VERSION = '1.08' ;
+$VERSION = '1.10' ;
 
 
 use Exporter() ;
@@ -101,6 +101,10 @@ sub nc {
     s{ \b L([aeo])  \b }{l$1}gox ;      # lo Italian; la, le French.
     s{ \b V([ao])n  \b }{v$1n}gox ;     # van German; von Dutch/Flemish.
 
+    # Fixes for roman numeral names, e.g. Henry VIII, up to 89, LXXXIX
+    s{ \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
+            (?: [Ii]{1,3} | [Ii][VvXx] | [Vv][Ii]{0,3} )? ) \b }{\U$1}gox ;
+
     $_ ;
 }
 
@@ -174,6 +178,11 @@ plus "son (daughter) of" etc. in various languages, e.g.:
     AP LLWYD DAFYDD     ap Llwyd Dafydd
 etc.
 
+plus names with roman numerals (up to 89, LXXXIX), e.g.:
+
+    henry viii          Henry VIII
+    louis xiv           Louis XIV
+
 =head1 BUGS
 
 The module covers the rules that I know of. There are probably a lot
@@ -192,9 +201,9 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 
 =head1 CHANGES
 
-1998/4/20   First release.
+1998/04/20  First release.
 
-1998/6/25   First public release.
+1998/06/25  First public release.
 
 1999/01/18  Second public release.
 
@@ -216,6 +225,10 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 
 1999/09/09  Renamed package Lingua::EN::NameCase.pm as per John Porter's
             (CPAN) suggestion.
+
+1999/11/13  Added code for names with roman numerals, thanks to David Lynn
+            Rice for this suggestion. (If you need to go beyond LXXXIX let me
+            know.)
 
 =head1 AUTHOR
 

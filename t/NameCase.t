@@ -35,12 +35,14 @@ my @proper_names = (
     "Mackle",           "Macklin",              "Mackie",
     "Macquarie",        "Machado",              "Macevicius",
     "Maciulis",         "Macias",               "MacMurdo",
- 
+    # Roman numerals
+    "Henry VIII",       "Louis III",            "Louis XIV",
+    "Charles II",       "Fred XLIX",
 ) ;
 
 # Set up some module globals.
-my @uppercase_names = map { uc } @proper_names ;
-my @names = @uppercase_names ;
+my @lowercase_names = map { lc } @proper_names ;
+my @names = @lowercase_names ;
 my @result ;
 my $name ;
 my $fixed_name ;
@@ -52,16 +54,16 @@ $" = ", " ;
 print "1..21\n" ;
 
 # Print the original.
-print "\tOriginal:\n@uppercase_names.\n" if $debugging ;
+print "\tOriginal:\n@lowercase_names.\n" if $debugging ;
 
 # Test an array without changing the array's contents; print the first result.
 @result = NameCase( @names ) ;
 print "\tResult:\n@result.\n" if $debugging ;
 print "\nArray assignment with source array passed by copy..." 
 if $debugging ;
-print "" . ( &eq_array( \@names, \@uppercase_names ) ? "ok" : "not ok\a" ) 
+print "" . ( &eq_array( \@names, \@lowercase_names ) ? "ok" : "not ok\a" ) 
 if $debugging ;
-print "" . ( &eq_array( \@names, \@uppercase_names ) ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
+print "" . ( &eq_array( \@names, \@lowercase_names ) ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 print ". Fixed..." 
 if $debugging ;
 print "" . ( &eq_array( \@result, \@proper_names ) ? "ok\n" : "not ok\a\n" ) 
@@ -74,9 +76,9 @@ print "" . ( &eq_array( \@result, \@proper_names ) ? "ok $i\n" : "not ok $i\n" )
 @result = NameCase( \@names ) ;
 print "Array assignment with source array passed by reference..." 
 if $debugging ;
-print "" . ( &eq_array( \@names, \@uppercase_names ) ? "ok" : "not ok\a" ) 
+print "" . ( &eq_array( \@names, \@lowercase_names ) ? "ok" : "not ok\a" ) 
 if $debugging ;
-print "" . ( &eq_array( \@names, \@uppercase_names ) ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
+print "" . ( &eq_array( \@names, \@lowercase_names ) ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 print ". Fixed..." 
 if $debugging ;
 print "" . ( &eq_array( \@result, \@proper_names ) ? "ok\n" : "not ok\a\n" ) 
@@ -92,16 +94,16 @@ if $debugging ;
 print "" . ( &eq_array( \@names, \@proper_names ) ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 # Test a scalar in-place.
-$name = $uppercase_names[1] ;
+$name = $lowercase_names[1] ;
 NameCase( \$name ) ;
 print "In-place scalar (null operation)..." 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok\n" : "not ok\a\n" ) 
+print "" . ( $name eq $lowercase_names[1] ? "ok\n" : "not ok\a\n" ) 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
+print "" . ( $name eq $lowercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 # Test a scalar.
-$name = $uppercase_names[1] ;
+$name = $lowercase_names[1] ;
 $fixed_name = NameCase( $name ) ;
 print "Scalar..." 
 if $debugging ;
@@ -126,7 +128,7 @@ if $debugging ;
 print "" . ( &eq_array( \@result, [ "Nancy", "Drew" ] ) ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 # Test a scalar.
-$name = $uppercase_names[1] ;
+$name = $lowercase_names[1] ;
 $fixed_name = nc $name ;
 print "Scalar as list operator..." 
 if $debugging ;
@@ -143,13 +145,13 @@ if $debugging ;
 print "" . ( $fixed_name eq "John McVey" ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 # Test a reference to a scalar.
-$name = $uppercase_names[1] ;
+$name = $lowercase_names[1] ;
 $fixed_name = nc( \$name ) ;
 print "Reference to a scalar using nc..." 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok" : "not ok\a" ) 
+print "" . ( $name eq $lowercase_names[1] ? "ok" : "not ok\a" ) 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
+print "" . ( $name eq $lowercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 print ". Fixed..." 
 if $debugging ;
 print "" . ( $fixed_name eq $proper_names[1] ? "ok\n" : "not ok\a\n" ) 
@@ -157,7 +159,7 @@ if $debugging ;
 print "" . ( $fixed_name eq $proper_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 # Test a scalar in an array context.
-$name = $uppercase_names[1] ;
+$name = $lowercase_names[1] ;
 @result = nc $name ;
 print "Scalar in a list context using nc..." 
 if $debugging ;
@@ -166,13 +168,13 @@ if $debugging ;
 print "" . ( $result[0] eq $proper_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 # Test a reference to a scalar in an array context.
-$name = $uppercase_names[1] ;
+$name = $lowercase_names[1] ;
 @result = nc \$name ;
 print "Reference to a scalar in a list context using nc..." 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok" : "not ok\a" ) 
+print "" . ( $name eq $lowercase_names[1] ? "ok" : "not ok\a" ) 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
+print "" . ( $name eq $lowercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 print ". Fixed..." 
 if $debugging ;
 print "" . ( $result[0] eq $proper_names[1] ? "ok\n" : "not ok\a\n" ) 
@@ -180,13 +182,13 @@ if $debugging ;
 print "" . ( $result[0] eq $proper_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 # Test a reference to a scalar.
-$name = $uppercase_names[1] ;
+$name = $lowercase_names[1] ;
 $fixed_name = NameCase( \$name ) ;
 print "Reference to a scalar using NameCase..." 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok" : "not ok\a" ) 
+print "" . ( $name eq $lowercase_names[1] ? "ok" : "not ok\a" ) 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
+print "" . ( $name eq $lowercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 print ". Fixed..." 
 if $debugging ;
 print "" . ( $fixed_name eq $proper_names[1] ? "ok\n" : "not ok\a\n" ) 
@@ -194,7 +196,7 @@ if $debugging ;
 print "" . ( $fixed_name eq $proper_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 # Test a scalar in an array context.
-$name = $uppercase_names[1] ;
+$name = $lowercase_names[1] ;
 @result = NameCase $name ;
 print "Scalar in a list context using NameCase..." 
 if $debugging ;
@@ -203,13 +205,13 @@ if $debugging ;
 print "" . ( $result[0] eq $proper_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 # Test a reference to a scalar in an array context.
-$name = $uppercase_names[1] ;
+$name = $lowercase_names[1] ;
 @result = NameCase \$name ;
 print "Reference to a scalar in a list context using NameCase..." 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok" : "not ok\a" ) 
+print "" . ( $name eq $lowercase_names[1] ? "ok" : "not ok\a" ) 
 if $debugging ;
-print "" . ( $name eq $uppercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
+print "" . ( $name eq $lowercase_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 print ". Fixed..." 
 if $debugging ;
 print "" . ( $result[0] eq $proper_names[1] ? "ok\n" : "not ok\a\n" ) 
