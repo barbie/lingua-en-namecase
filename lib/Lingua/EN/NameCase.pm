@@ -205,6 +205,22 @@ plus names with roman numerals (up to 89, LXXXIX), e.g.:
     henry viii          Henry VIII
     louis xiv           Louis XIV
 
+=head1 METHODS
+
+=over
+
+=item * NameCase
+
+Takes a scalar, scalarref, array or arrayref, and changes the case of the 
+contents, as appropriate. Essentially a wrapper around nc().
+
+=item * nc
+
+Takes a scalar or scalarref, and change the case of the name in the 
+corresponding string appropriately.
+
+=back
+
 =head1 BUGS
 
 The module covers the rules that I know of. There are probably a lot
