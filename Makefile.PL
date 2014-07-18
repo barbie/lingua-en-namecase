@@ -10,7 +10,7 @@ WriteMakefile(
     ($] >= 5.005 ?
         (
             ABSTRACT => 'Change UCASE and lowcase names to Proper Case',
-            AUTHOR   => 'Mark Summerfield <summer@perlpress.com>',
+            AUTHOR   => 'Mark Summerfield <summer@qtrac.eu>',
         ) : () ),
     'LIBS'         => [''],   # e.g., '-lm'
     'DEFINE'       => '',     # e.g., '-DHAVE_SOMETHING'

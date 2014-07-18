@@ -88,7 +88,22 @@ sub nc {
         s/\bMacKle/Mackle/go ;
         s/\bMacKlin/Macklin/go ;
         s/\bMacQuarie/Macquarie/go ;
-
+	s/\bMacOmber/Macomber/go ;
+	s/\bMacIn/Macin/go ;
+	s/\bMacKintosh/Mackintosh/go ;
+	s/\bMacKen/Macken/go ;
+	s/\bMacHen/Machen/go ;
+	s/\bMacisaac/MacIsaac/go ;
+	s/\bMacHiel/Machiel/go ;
+	s/\bMacIol/Maciol/go ;
+	s/\bMacKell/Mackell/go ;
+	s/\bMacKlem/Macklem/go ;
+	s/\bMacKrell/Mackrell/go ;
+	s/\bMacLin/Maclin/go ;
+	s/\bMacKey/Mackey/go ;
+	s/\bMacKley/Mackley/go ;
+	s/\bMacHell/Machell/go ;
+	s/\bMacHon/Machon/go ;
     }
     s/Macmurdo/MacMurdo/go ;
  
@@ -241,18 +256,22 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 	    $SPANISH is set in which case 'La' => 'La'. Again thanks to
 	    Aaron Patterson.
 
+2007/04/27  Added 16 "Mac" exceptions provided by Stuart McConnachie.
+	    The license is now "the same terms as Perl itself".
+
 =head1 AUTHOR
 
-Mark Summerfield. I can be contacted as <summer@perlpress.com> -
+Mark Summerfield. I can be contacted as <summer@qtrac.eu> -
 please include the word 'namecase' in the subject line.
 
 Thanks to Kim Ryan <kimaryan@ozemail.com.au> for his Mc/Mac solution.
 
 =head1 COPYRIGHT
 
-Copyright (c) Mark Summerfield 1998-2002. All Rights Reserved.
+Copyright (c) Mark Summerfield 1998-2007. All Rights Reserved.
 
-This module may be used/distributed/modified under the LGPL. 
+This module may be used/distributed/modified under the same terms as
+Perl itself. 
 
 =cut
 

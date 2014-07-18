@@ -4,8 +4,9 @@
 
 Test script for Lingua::EN::NameCase.pm
 
-Copyright (c) Mark Summerfield 1998-2000. All Rights Reserved. This program is
-free software; you can redistribute it and/or modify it under the GPL. 
+Copyright (c) Mark Summerfield 1998-2007. All Rights Reserved. This program is
+free software; you can redistribute it and/or modify it under the same
+terms as Perl itself.
 
 =cut
 
@@ -36,6 +37,7 @@ my @proper_names = (
     "Mackle",           "Macklin",              "Mackie",
     "Macquarie",        "Machado",              "Macevicius",
     "Maciulis",         "Macias",               "MacMurdo",
+    "Mackrell",		"Maclin",		"McConnachie",
     # Roman numerals
     "Henry VIII",       "Louis III",            "Louis XIV",
     "Charles II",       "Fred XLIX",
