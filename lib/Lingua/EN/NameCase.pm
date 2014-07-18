@@ -88,37 +88,37 @@ sub nc {
         s/\bMacKle/Mackle/go ;
         s/\bMacKlin/Macklin/go ;
         s/\bMacQuarie/Macquarie/go ;
-	s/\bMacOmber/Macomber/go ;
-	s/\bMacIn/Macin/go ;
-	s/\bMacKintosh/Mackintosh/go ;
-	s/\bMacKen/Macken/go ;
-	s/\bMacHen/Machen/go ;
-	s/\bMacisaac/MacIsaac/go ;
-	s/\bMacHiel/Machiel/go ;
-	s/\bMacIol/Maciol/go ;
-	s/\bMacKell/Mackell/go ;
-	s/\bMacKlem/Macklem/go ;
-	s/\bMacKrell/Mackrell/go ;
-	s/\bMacLin/Maclin/go ;
-	s/\bMacKey/Mackey/go ;
-	s/\bMacKley/Mackley/go ;
-	s/\bMacHell/Machell/go ;
-	s/\bMacHon/Machon/go ;
+        s/\bMacOmber/Macomber/go ;
+        s/\bMacIn/Macin/go ;
+        s/\bMacKintosh/Mackintosh/go ;
+        s/\bMacKen/Macken/go ;
+        s/\bMacHen/Machen/go ;
+        s/\bMacisaac/MacIsaac/go ;
+        s/\bMacHiel/Machiel/go ;
+        s/\bMacIol/Maciol/go ;
+        s/\bMacKell/Mackell/go ;
+        s/\bMacKlem/Macklem/go ;
+        s/\bMacKrell/Mackrell/go ;
+        s/\bMacLin/Maclin/go ;
+        s/\bMacKey/Mackey/go ;
+        s/\bMacKley/Mackley/go ;
+        s/\bMacHell/Machell/go ;
+        s/\bMacHon/Machon/go ;
     }
     s/Macmurdo/MacMurdo/go ;
  
     # Fixes for "son (daughter) of" etc. in various languages.
-    s{ \b Al(?=\s+\w)  }{al}gox ;	# al Arabic or forename Al.
-    s{ \b Ap        \b }{ap}gox ;       # ap Welsh.
-    s{ \b Ben(?=\s+\w) }{ben}gox ;	# ben Hebrew or forename Ben.
-    s{ \b Dell([ae])\b }{dell$1}gox ;   # della and delle Italian.
-    s{ \b D([aeiu]) \b }{d$1}gox ;      # da, de, di Italian; du French.
-    s{ \b De([lr])  \b }{de$1}gox ;     # del Italian; der Dutch/Flemish.
-    s{ \b El	    \b }{el}gox unless $SPANISH ;   # el Greek or El Spanish.
+    s{ \b Al(?=\s+\w)  }{al}gox ;                   # al Arabic or forename Al.
+    s{ \b Ap        \b }{ap}gox ;                   # ap Welsh.
+    s{ \b Ben(?=\s+\w) }{ben}gox ;                  # ben Hebrew or forename Ben.
+    s{ \b Dell([ae])\b }{dell$1}gox ;               # della and delle Italian.
+    s{ \b D([aeiu]) \b }{d$1}gox ;                  # da, de, di Italian; du French.
+    s{ \b De([lr])  \b }{de$1}gox ;                 # del Italian; der Dutch/Flemish.
+    s{ \b El        \b }{el}gox unless $SPANISH ;   # el Greek or El Spanish.
     s{ \b La        \b }{la}gox unless $SPANISH ;   # la French or La Spanish.
-    s{ \b L([eo])   \b }{l$1}gox ;      # lo Italian; le French.
-    s{ \b Van(?=\s+\w) }{van}gox ;	# van German or forename Van.
-    s{ \b Von       \b }{von}gox ;	# von Dutch/Flemish
+    s{ \b L([eo])   \b }{l$1}gox ;                  # lo Italian; le French.
+    s{ \b Van(?=\s+\w) }{van}gox ;                  # van German or forename Van.
+    s{ \b Von       \b }{von}gox ;                  # von Dutch/Flemish
 
     # Fixes for roman numeral names, e.g. Henry VIII, up to 89, LXXXIX
     s{ \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
@@ -214,53 +214,6 @@ data 'cleaner' it may be all you need.
 
 Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 
-=head1 CHANGES
-
-1998/04/20  First release.
-
-1998/06/25  First public release.
-
-1999/01/18  Second public release.
-
-1999/02/08  Added Mac with Mack as an exception, thanks to Kim Ryan for this.
-
-1999/05/05  Copied Kim Ryan's Mc/Mac solution from his NameParse.pm and 
-            replaced my Mc/Mac solution with his.
-
-1999/05/08  nc can now use $_ as its default argument 
-            e.g. "$ans = nc ;" and "nc ;", both of which set $_, with the
-            first one setting $ans also.
-
-1999/07/30  Modified for CPAN and automatic testing. Stopped using $_ as the
-            default argument.
-
-1999/08/08  Changed licence to LGPL.
-
-1999/09/07  Minor change to packaging for CPAN.
-
-1999/09/09  Renamed package Lingua::EN::NameCase.pm as per John Porter's
-            (CPAN) suggestion.
-
-1999/11/13  Added code for names with roman numerals, thanks to David Lynn
-            Rice for this suggestion. (If you need to go beyond LXXXIX let me
-            know.)
-
-2000/11/22  Added use locale at the suggestion of Eric Kolve. It should have
-	    been there in the first place.
-
-2002/04/25  Al, Ben and Van are preserved if single names and namecased 
-	    otherwise, e.g. 'Al' => 'Al', 'Al Fahd' => 'al Fahd'. Added
-	    $SPANISH_EL variable. All thanks to a suggestion by Aaron
-	    Patterson.
-2002/04/26  Changed $SPANISH_EL to $SPANISH and now 'La' => 'la' unless 
-	    $SPANISH is set in which case 'La' => 'La'. Again thanks to
-	    Aaron Patterson.
-
-2007/04/27  Added 16 "Mac" exceptions provided by Stuart McConnachie.
-	    The license is now "the same terms as Perl itself".
-
-2008/02/07  Fixed the version number.
-
 =head1 AUTHOR
 
 Mark Summerfield. I can be contacted as <summer@qtrac.eu> -
@@ -276,4 +229,3 @@ This module may be used/distributed/modified under the same terms as
 Perl itself. 
 
 =cut
-
