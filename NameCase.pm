@@ -1,6 +1,6 @@
 package Lingua::EN::NameCase ;    # Documented at the __END__.
 
-# $Id: NameCase.pm,v 1.3 2002/04/25 11:25:31 mark Exp mark $
+# $Id: NameCase.pm,v 1.4 2002/04/26 07:26:28 mark Exp mark $
 
 require 5.004 ;
 
@@ -9,9 +9,9 @@ use locale ;
 
 use Carp ;
 
-use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $SPANISH_EL ) ;
+use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $SPANISH ) ;
 
-$VERSION = '1.12' ;
+$VERSION = '1.13' ;
 
 use Exporter() ;
 
@@ -20,7 +20,7 @@ use Exporter() ;
 @EXPORT     = qw( nc ) ;
 @EXPORT_OK  = qw( NameCase nc ) ;
 
-$SPANISH_EL = 0;
+$SPANISH    = 0;
 
 #############################
 sub NameCase {
@@ -77,32 +77,33 @@ sub nc {
         s/\b(Ma?c)([A-Za-z]+)/$1\u$2/go ;
 
         # Now correct for "Mac" exceptions
+        s/\bMacEvicius/Macevicius/go ;  # Lithuanian
+        s/\bMacHado/Machado/go ;        # Portuguese
+        s/\bMacHar/Machar/go ;
         s/\bMacHin/Machin/go ;
         s/\bMacHlin/Machlin/go ;
-        s/\bMacHar/Machar/go ;
+        s/\bMacIas/Macias/go ;  
+        s/\bMacIulis/Maciulis/go ;  
+        s/\bMacKie/Mackie/go ;
         s/\bMacKle/Mackle/go ;
         s/\bMacKlin/Macklin/go ;
-        s/\bMacKie/Mackie/go ;
         s/\bMacQuarie/Macquarie/go ;
-        s/\bMacHado/Machado/go ;        # Portuguese
-        s/\bMacEvicius/Macevicius/go ;  # Lithuanian
-        s/\bMacIulis/Maciulis/go ;  
-        s/\bMacIas/Macias/go ;  
 
     }
     s/Macmurdo/MacMurdo/go ;
  
     # Fixes for "son (daughter) of" etc. in various languages.
     s{ \b Al(?=\s+\w)  }{al}gox ;	# al Arabic or forename Al.
-    s{ \b El	    \b }{el}gox unless $SPANISH_EL ;	# el Greek.
     s{ \b Ap        \b }{ap}gox ;       # ap Welsh.
     s{ \b Ben(?=\s+\w) }{ben}gox ;	# ben Hebrew or forename Ben.
     s{ \b Dell([ae])\b }{dell$1}gox ;   # della and delle Italian.
     s{ \b D([aeiu]) \b }{d$1}gox ;      # da, de, di Italian; du French.
     s{ \b De([lr])  \b }{de$1}gox ;     # del Italian; der Dutch/Flemish.
-    s{ \b L([aeo])  \b }{l$1}gox ;      # lo Italian; la, le French.
-    s{ \b Von       \b }{von}gox ;	# von Dutch/Flemish
+    s{ \b El	    \b }{el}gox unless $SPANISH ;   # el Greek or El Spanish.
+    s{ \b La        \b }{la}gox unless $SPANISH ;   # la French or La Spanish.
+    s{ \b L([eo])   \b }{l$1}gox ;      # lo Italian; le French.
     s{ \b Van(?=\s+\w) }{van}gox ;	# van German or forename Van.
+    s{ \b Von       \b }{von}gox ;	# von Dutch/Flemish
 
     # Fixes for roman numeral names, e.g. Henry VIII, up to 89, LXXXIX
     s{ \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
@@ -144,8 +145,9 @@ NameCase - Perl module to fix the case of people's names.
     # NameCase will not change a scalar in-place, i.e.
     NameCase( \$OriginalName ) ; # WRONG: null operation.
 
-    $Lingua::EN::NameCase::SPANISH_EL = 1;
+    $Lingua::EN::NameCase::SPANISH = 1;
     # Now 'El' => 'El' instead of (default) Greek 'El' => 'el'.
+    # Now 'La' => 'La' instead of (default) French 'La' => 'la'.
 
 =head1 DESCRIPTION
 
@@ -235,6 +237,9 @@ Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
 	    otherwise, e.g. 'Al' => 'Al', 'Al Fahd' => 'al Fahd'. Added
 	    $SPANISH_EL variable. All thanks to a suggestion by Aaron
 	    Patterson.
+2002/04/26  Changed $SPANISH_EL to $SPANISH and now 'La' => 'la' unless 
+	    $SPANISH is set in which case 'La' => 'La'. Again thanks to
+	    Aaron Patterson.
 
 =head1 AUTHOR
 

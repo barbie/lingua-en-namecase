@@ -52,7 +52,7 @@ my $i = 1 ;
 
 $" = ", " ; #"
 
-print "1..21\n" ;
+print "1..23\n" ;
 
 # Print the original.
 print "\tOriginal:\n@lowercase_names.\n" if $debugging ;
@@ -219,8 +219,9 @@ print "" . ( $result[0] eq $proper_names[1] ? "ok\n" : "not ok\a\n" )
 if $debugging ;
 print "" . ( $result[0] eq $proper_names[1] ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
-$Lingua::EN::NameCase::SPANISH_EL = 1;
+$Lingua::EN::NameCase::SPANISH = 1;
 print "" . ( 'El Paso' eq nc( 'El Paso' )  ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
+print "" . ( 'La Luna' eq nc( 'La Luna' )  ? "ok $i\n" : "not ok $i\n" ) ; $i++ ;
 
 
 sub eq_array {
