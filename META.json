@@ -1,6 +1,6 @@
 {
     "name": "Lingua-EN-NameCase",
-    "version": "1.15",
+    "version": "1.16",
     "abstract": "Correctly case a person's name from UPERCASE or lowcase",
     "author": [
         "Barbie (BARBIE) <barbie@cpan.org>"
@@ -45,7 +45,7 @@
     "provides": {
         "Lingua::EN::NameCase": {
             "file": "lib/Lingua/EN/NameCase.pm",
-            "version": "1.15"
+            "version": "1.16"
         }
     },
     "no_index": {

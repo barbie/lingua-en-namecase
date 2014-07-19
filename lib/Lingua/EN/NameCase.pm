@@ -5,7 +5,7 @@ use locale;
 
 use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $SPANISH );
 
-$VERSION = '1.15';
+$VERSION = '1.16';
 
 #--------------------------------------------------------------------------
 # Modules
