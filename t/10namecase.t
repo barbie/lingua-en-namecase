@@ -4,7 +4,7 @@ use strict;
 use integer;
 
 use Lingua::EN::NameCase qw( NameCase nc );
-use Test::More  tests => 29;
+use Test::More  tests => 31;
 
 my $debugging = 0;
 
@@ -15,7 +15,7 @@ my @proper_names = (
     "van Dyke",         "Van",                  "ap Llwyd Dafydd",
     "al Fahd",          "Al",
     "el Grecco",
-    "ben Gurion",       "Ben",
+    "Ben Gurion",       "Ben",  
     "da Vinci",
     "di Caprio",        "du Pont",              "de Legate",
     "del Crond",        "der Sind",             "van der Post",
@@ -152,3 +152,8 @@ $Lingua::EN::NameCase::POSTNOMINAL = 1;
 is( nc( 'Barbie PHD' ), 'Barbie PhD', 'post nominal initials' );
 $Lingua::EN::NameCase::POSTNOMINAL = 0;
 is( nc( 'Barbie PHD' ), 'Barbie Phd', 'not post nominal initials' );
+
+$Lingua::EN::NameCase::HEBREW = 1;
+is( nc( 'Aharon BEN Amram Ha-Kohein' ), 'Aharon ben Amram Ha-Kohein', 'hebrew' );
+$Lingua::EN::NameCase::HEBREW = 0;
+is( nc( 'Aharon BEN Amram Ha-Kohein' ), 'Aharon Ben Amram Ha-Kohein', 'not hebrew' );

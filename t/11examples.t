@@ -2,7 +2,7 @@
 use strict;
 
 use Lingua::EN::NameCase 'nc';
-use Test::More  tests => 11;
+use Test::More  tests => 12;
 
 my %tests = (
     q{DR SARAH BEETLE}              => q{Dr Sarah Beetle},
@@ -15,7 +15,8 @@ my %tests = (
     q{ESTATE OF LAURA JONES}        => q{Estate Of Laura Jones},
     q{MS MS. LAURA J BYRD}          => q{Ms Ms. Laura J Byrd},
     q{ben mcgrath}                  => q{Ben McGrath},
-    q{Aharon ben Amram ha-Kohein}   => q{Aharon ben Amram Ha-Kohein},
+    q{AHARON BEN AMRAM HA-KOHEIN}   => q{Aharon ben Amram Ha-Kohein},
+    q{MIRIAM BAT RIVKAH}            => q{Miriam bat Rivkah},
 );
 
 for my $test (keys %tests) {
