@@ -141,6 +141,7 @@ sub nc {
     # <http://www.jewfaq.org/jnames.htm> search for: followed by ben
     # without first (?<=\S\s), first name of 'ben jones' remains lowercase
     s{ (?<=\S\s)\bBen(?=\s+\w) }{ben}gx if $HEBREW; # ben Hebrew or forename Ben.
+    s{ (?<=\S\s)\bBat(?=\s+\w) }{bat}gx if $HEBREW; # bat Hebrew or forename Bat.
     s{ \b Dell([ae])\b }{dell$1}gx;                 # della and delle Italian.
     s{ \b D([aeiu]) \b }{d$1}gx;                    # da, de, di Italian; du French.
     s{ \b De([lr])  \b }{de$1}gx;                   # del Italian; der Dutch/Flemish.
