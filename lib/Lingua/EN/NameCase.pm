@@ -3,7 +3,7 @@ package Lingua::EN::NameCase;
 use strict;
 use locale;
 
-use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $SPANISH );
+use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $SPANISH $ROMAN );
 
 $VERSION = '1.16';
 
@@ -21,6 +21,7 @@ use Exporter();
 # Variables
 
 $SPANISH    = 0;
+$ROMAN      = 1;
 
 #--------------------------------------------------------------------------
 # Functions
@@ -119,9 +120,11 @@ sub nc {
     s{ \b Van(?=\s+\w) }{van}gx;                    # van German or forename Van.
     s{ \b Von       \b }{von}gx;                    # von Dutch/Flemish
 
-    # Fixes for roman numeral names, e.g. Henry VIII, up to 89, LXXXIX
-    s{ \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
-            (?: [Ii]{1,3} | [Ii][VvXx] | [Vv][Ii]{0,3} )? ) \b }{\U$1}gx;
+    if($ROMAN) {
+        # Fixes for roman numeral names, e.g. Henry VIII, up to 89, LXXXIX
+        s{ \b ( (?: [Xx]{1,3} | [Xx][Ll]   | [Ll][Xx]{0,3} )?
+                (?: [Ii]{1,3} | [Ii][VvXx] | [Vv][Ii]{0,3} )? ) \b }{\U$1}gx;
+    }
 
     $_;
 }

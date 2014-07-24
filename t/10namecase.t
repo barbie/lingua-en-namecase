@@ -143,3 +143,7 @@ $Lingua::EN::NameCase::SPANISH = 0;
 is( nc( 'El Paso' ), 'el Paso', 'not spanish' );
 is( nc( 'La Luna' ), 'la Luna', 'not spanish' );
 
+$Lingua::EN::NameCase::ROMAN = 1;
+is( nc( 'Na Li' ), 'Na LI', 'roman numerals' );
+$Lingua::EN::NameCase::ROMAN = 0;
+is( nc( 'Na Li' ), 'Na Li', 'not roman numerals' );

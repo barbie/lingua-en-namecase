@@ -3,6 +3,7 @@ Revision history for Lingua-EN-NameCase
 
         - switch to Test::More in tests.
         - RT#88359 - typo fix (thanks to dsteinbrunner).
+        - RT#50047 - roman numerals optional (thanks to degatcpan).
 
 1.16    2014-07-24
         - new maintainer: Barbie.
