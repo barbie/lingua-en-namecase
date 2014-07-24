@@ -4,6 +4,9 @@ Revision history for Lingua-EN-NameCase
         - switch to Test::More in tests.
         - RT#88359 - typo fix (thanks to dsteinbrunner).
         - RT#50047 - roman numerals optional (thanks to degatcpan).
+        - added Post-Nominial Initials, based on RT#47708 (thanks to Dave Gray
+          and Mark Summerfield for the ideas). The current list isn't
+          exhaustive, but should suffice for now.
 
 1.16    2014-07-24
         - new maintainer: Barbie.

@@ -4,7 +4,7 @@ use strict;
 use integer;
 
 use Lingua::EN::NameCase qw( NameCase nc );
-use Test::More  tests => 27;
+use Test::More  tests => 29;
 
 my $debugging = 0;
 
@@ -147,3 +147,8 @@ $Lingua::EN::NameCase::ROMAN = 1;
 is( nc( 'Na Li' ), 'Na LI', 'roman numerals' );
 $Lingua::EN::NameCase::ROMAN = 0;
 is( nc( 'Na Li' ), 'Na Li', 'not roman numerals' );
+
+$Lingua::EN::NameCase::POSTNOMINAL = 1;
+is( nc( 'Barbie PHD' ), 'Barbie PhD', 'post nominal initials' );
+$Lingua::EN::NameCase::POSTNOMINAL = 0;
+is( nc( 'Barbie PHD' ), 'Barbie Phd', 'not post nominal initials' );
