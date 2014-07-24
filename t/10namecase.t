@@ -139,3 +139,7 @@ is( $result[0], $proper_names[1], '.. fixed');
 $Lingua::EN::NameCase::SPANISH = 1;
 is( nc( 'El Paso' ), 'El Paso', 'spanish' );
 is( nc( 'La Luna' ), 'La Luna', 'spanish' );
+$Lingua::EN::NameCase::SPANISH = 0;
+is( nc( 'El Paso' ), 'el Paso', 'not spanish' );
+is( nc( 'La Luna' ), 'la Luna', 'not spanish' );
+
