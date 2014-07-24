@@ -181,7 +181,7 @@ following:
     Mc, Mac, al, el, ap, da, de, delle, della, di, du, del, der,
     la, le, lo, van and von.
 
-It correctly deals with names which contain apostrophies and hyphens too.
+It correctly deals with names which contain apostrophes and hyphens too.
 
 =head2 EXAMPLE FIXES
 
