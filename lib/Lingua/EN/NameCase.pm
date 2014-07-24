@@ -3,7 +3,7 @@ package Lingua::EN::NameCase;
 use strict;
 use locale;
 
-use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $SPANISH $ROMAN $POSTNOMINAL );
+use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $HEBREW $SPANISH $ROMAN $POSTNOMINAL );
 
 $VERSION = '1.16';
 
@@ -20,6 +20,7 @@ use Exporter();
 #--------------------------------------------------------------------------
 # Variables
 
+$HEBREW         = 1;
 $SPANISH        = 0;
 $ROMAN          = 1;
 $POSTNOMINAL    = 1;
@@ -139,7 +140,7 @@ sub nc {
     s{ \b Ap        \b }{ap}gx;                     # ap Welsh.
     # <http://www.jewfaq.org/jnames.htm> search for: followed by ben
     # without first (?<=\S\s), first name of 'ben jones' remains lowercase
-    s{ (?<=\S\s)\b Ben(?=\s+\w) }{ben}gox ;	        # ben Hebrew or forename Ben.
+    s{ (?<=\S\s)\bBen(?=\s+\w) }{ben}gx if $HEBREW; # ben Hebrew or forename Ben.
     s{ \b Dell([ae])\b }{dell$1}gx;                 # della and delle Italian.
     s{ \b D([aeiu]) \b }{d$1}gx;                    # da, de, di Italian; du French.
     s{ \b De([lr])  \b }{de$1}gx;                   # del Italian; der Dutch/Flemish.
