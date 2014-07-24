@@ -206,6 +206,16 @@ Lingua::EN::NameCase - Correctly case a person's name from UPERCASE or lowcase
     # Now 'El' => 'El' instead of (default) Greek 'El' => 'el'.
     # Now 'La' => 'La' instead of (default) French 'La' => 'la'.
 
+    $Lingua::EN::NameCase::HEBREW = 0;
+    # Now 'Aharon BEN Amram Ha-Kohein' => 'Aharon Ben Amram Ha-Kohein' 
+    #   instead of (default) => 'Aharon ben Amram Ha-Kohein'.
+
+    $Lingua::EN::NameCase::ROMAN = 0;
+    # Now 'Li' => 'Li' instead of (default) 'Li' => 'LI'.
+
+    $Lingua::EN::NameCase::POSTNOMINAL = 0;
+    # Now 'PHD' => 'PhD' instead of (default) 'PHD' => 'Phd'.
+
 =head1 DESCRIPTION
 
 Forenames and surnames are often stored either wholly in UPPERCASE

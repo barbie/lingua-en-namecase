@@ -9,7 +9,7 @@ Revision history for Lingua-EN-NameCase
           exhaustive, but should suffice for now.
         - RT#46669 - Ben first name (thanks to Dave gray).
         - added $HEBREW switch.
-        - added 'bat', duaghter of, in HEBREW.
+        - added 'bat', daughter of, in HEBREW.
 
 1.16    2014-07-24
         - new maintainer: Barbie.
