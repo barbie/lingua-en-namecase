@@ -7,6 +7,7 @@ Revision history for Lingua-EN-NameCase
         - added Post-Nominial Initials, based on RT#47708 (thanks to Dave Gray
           and Mark Summerfield for the ideas). The current list isn't
           exhaustive, but should suffice for now.
+        - RT#46669 - Ben first name (thanks to Dave gray).
 
 1.16    2014-07-24
         - new maintainer: Barbie.

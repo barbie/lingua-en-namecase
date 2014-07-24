@@ -137,7 +137,9 @@ sub nc {
     # Fixes for "son (daughter) of" etc. in various languages.
     s{ \b Al(?=\s+\w)  }{al}gx;                     # al Arabic or forename Al.
     s{ \b Ap        \b }{ap}gx;                     # ap Welsh.
-    s{ \b Ben(?=\s+\w) }{ben}gx;                    # ben Hebrew or forename Ben.
+    # <http://www.jewfaq.org/jnames.htm> search for: followed by ben
+    # without first (?<=\S\s), first name of 'ben jones' remains lowercase
+    s{ (?<=\S\s)\b Ben(?=\s+\w) }{ben}gox ;	        # ben Hebrew or forename Ben.
     s{ \b Dell([ae])\b }{dell$1}gx;                 # della and delle Italian.
     s{ \b D([aeiu]) \b }{d$1}gx;                    # da, de, di Italian; du French.
     s{ \b De([lr])  \b }{de$1}gx;                   # del Italian; der Dutch/Flemish.
