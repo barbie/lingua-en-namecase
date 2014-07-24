@@ -1,7 +1,7 @@
 Revision history for Lingua-EN-NameCase
 =======================================
 
-1.16    2014-07-19
+1.16    2014-07-24
         - new maintainer: Barbie.
         - created Changes, taken from POD.
         - moved module into lib directory path.
