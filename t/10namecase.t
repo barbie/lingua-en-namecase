@@ -38,7 +38,7 @@ my @roman_names = (
     "Charles II",       "Fred XLIX",
 );
 
-push @proper_names, @mac_names,@roman_names;
+push @proper_names, @mac_names, @roman_names;
 
 # Set up some module globals.
 my @lowercase_names = map { lc } @proper_names;
