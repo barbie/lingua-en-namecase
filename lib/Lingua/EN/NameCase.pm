@@ -77,7 +77,7 @@ sub NameCase {
         # and return a name-cased copy.
         nc( ${ $_[0] } );
 
-    } elsif( scalar @_ == 1 and not ref $_[0] ) {
+    } elsif( scalar @_ == 1 ) {
         # We've received a scalar: we return a name-cased copy.
         nc( $_[0] );
 
@@ -92,6 +92,8 @@ sub nc {
 
     local( $_ ) = @_ if @_;
     $_ = ${$_} if ref( $_ ) ;           # Replace reference with value.
+
+    return $_   unless($_);
 
     $_ = lc ;                           # Lowercase the lot.
     s{ \b (\w)   }{\u$1}gx;             # Uppercase first letter of every word.
