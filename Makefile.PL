@@ -7,7 +7,7 @@ use 5.006;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME                => 'Lingua-EN-NameCase',
+    NAME                => 'Lingua::EN::NameCase',
     AUTHOR              => 'Barbie <barbie@cpan.org>',
     VERSION_FROM        => 'lib/Lingua/EN/NameCase.pm',
     ABSTRACT            => "Correctly case a person's name from UPERCASE or lowcase",
