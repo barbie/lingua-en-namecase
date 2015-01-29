@@ -28,5 +28,4 @@ WriteMakefile(
     'DEFINE'            => '',     # e.g., '-DHAVE_SOMETHING'
     'INC'               => '',     # e.g., '-I/usr/include/other'
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'WWW-Scraper-ISBN-ISBNdb_Driver-*' },
 );
