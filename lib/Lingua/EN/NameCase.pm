@@ -6,7 +6,7 @@ use locale;
 
 use vars qw( $VERSION @ISA @EXPORT @EXPORT_OK $HEBREW $SPANISH $ROMAN $POSTNOMINAL );
 
-$VERSION = '1.18';
+$VERSION = '1.19';
 
 #--------------------------------------------------------------------------
 # Modules

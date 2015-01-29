@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                     Lingua-EN-NameCase
-version:                  1.18
+version:                  1.19
 abstract:                 Correctly case a person's name from UPERCASE or lowcase
 author:
   - Barbie <barbie@cpan.org>
@@ -25,7 +25,7 @@ build_requires:
 provides:
   Lingua::EN::NameCase:
     file:     lib/Lingua/EN/NameCase.pm
-    version:  1.18
+    version:  1.19
 no_index:
   directory:
     - t
