@@ -1,6 +1,8 @@
 Revision history for Lingua-EN-NameCase
 =======================================
 
+        - added use warnings for CPANTS completeness.
+
 1.18    2014-10-11
         - fixed license fields in META.json to be lists.
         - simplified parameter logic checks.

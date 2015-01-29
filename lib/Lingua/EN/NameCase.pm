@@ -1,5 +1,6 @@
 package Lingua::EN::NameCase;
 
+use warnings;
 use strict;
 use locale;
 
