@@ -284,7 +284,7 @@ incorporated.
 There are probably lots of exceptions and problems - but as a general
 data 'cleaner' it may be all you need.
 
-Use Kim Ryan's NameParse.pm for any really sophisticated name parsing.
+Use Kim Ryan's L<Lingua::EN::NameParse> for any really sophisticated name parsing.
 
 =head1 AUTHOR
 
